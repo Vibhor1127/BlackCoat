@@ -1,0 +1,11 @@
+# Python
+**/__pycache__/
+*.py[cod]
+**/.env
+**/venv/
+
+# React
+**/node_modules/
+
+# VS Code
+.vscode/
