@@ -1031,31 +1031,31 @@ gst_rows = [
 ]
 
 # Write out the new files
-with open('c:\\Users\\hp\\Downloads\\BlackCoat-main\\BlackCoat-main\\blackcode-backend\\data\\bns_detailed.csv', 'w', newline='', encoding='utf-8') as f:
+with open('c:\\Users\\hp\\Downloads\\BlackCoat-main\\BlackCoat-main\\blackcoat-backend\\data\\bns_detailed.csv', 'w', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
     writer.writerows(bns_rows)
 
-with open('c:\\Users\\hp\\Downloads\\BlackCoat-main\\BlackCoat-main\\blackcode-backend\\data\\bnss_detailed.csv', 'w', newline='', encoding='utf-8') as f:
+with open('c:\\Users\\hp\\Downloads\\BlackCoat-main\\BlackCoat-main\\blackcoat-backend\\data\\bnss_detailed.csv', 'w', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
     writer.writerows(bnss_rows)
 
-with open('c:\\Users\\hp\\Downloads\\BlackCoat-main\\BlackCoat-main\\blackcode-backend\\data\\bsa_detailed.csv', 'w', newline='', encoding='utf-8') as f:
+with open('c:\\Users\\hp\\Downloads\\BlackCoat-main\\BlackCoat-main\\blackcoat-backend\\data\\bsa_detailed.csv', 'w', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
     writer.writerows(bsa_rows)
 
-with open('c:\\Users\\hp\\Downloads\\BlackCoat-main\\BlackCoat-main\\blackcode-backend\\data\\income_tax.csv', 'w', newline='', encoding='utf-8') as f:
+with open('c:\\Users\\hp\\Downloads\\BlackCoat-main\\BlackCoat-main\\blackcoat-backend\\data\\income_tax.csv', 'w', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
     writer.writerows(it_rows)
 
-with open('c:\\Users\\hp\\Downloads\\BlackCoat-main\\BlackCoat-main\\blackcode-backend\\data\\gst.csv', 'w', newline='', encoding='utf-8') as f:
+with open('c:\\Users\\hp\\Downloads\\BlackCoat-main\\BlackCoat-main\\blackcoat-backend\\data\\gst.csv', 'w', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
     writer.writerows(gst_rows)
 
 print("Expanded CSV files written successfully.")
 
 # Read the original master file (first 373 rows of master are the baseline)
-master_path = 'c:\\Users\\hp\\Downloads\\BlackCoat-main\\BlackCoat-main\\blackcode-backend\\data\\Indian_Law_and_Supreme_Court_Database_2026_NLPRAG.csv'
-temp_master_path = 'c:\\Users\\hp\\Downloads\\BlackCoat-main\\BlackCoat-main\\blackcode-backend\\data\\Indian_Law_and_Supreme_Court_Database_2026_NLPRAG_updated.csv'
+master_path = 'c:\\Users\\hp\\Downloads\\BlackCoat-main\\BlackCoat-main\\blackcoat-backend\\data\\Indian_Law_and_Supreme_Court_Database_2026_NLPRAG.csv'
+temp_master_path = 'c:\\Users\\hp\\Downloads\\BlackCoat-main\\BlackCoat-main\\blackcoat-backend\\data\\Indian_Law_and_Supreme_Court_Database_2026_NLPRAG_updated.csv'
 
 with open(master_path, 'r', newline='', encoding='utf-8') as f_in:
     reader = csv.reader(f_in)

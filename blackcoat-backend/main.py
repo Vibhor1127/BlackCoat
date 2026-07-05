@@ -5,7 +5,7 @@ from fastapi.responses import FileResponse
 import os
 from router.chat import router
 
-app = FastAPI(title="BlackCode Legal Chatbot API")
+app = FastAPI(title="BlackCoat Legal Chatbot API")
 
 app.add_middleware(
     CORSMiddleware,
@@ -18,7 +18,7 @@ app.include_router(router, prefix="/api")
 
 # Serve React static assets
 current_dir = os.path.dirname(os.path.abspath(__file__))
-build_dir = os.path.abspath(os.path.join(current_dir, "..", "blackcode-frontend", "build"))
+build_dir = os.path.abspath(os.path.join(current_dir, "..", "blackcoat-frontend", "build"))
 static_dir = os.path.join(build_dir, "static")
 
 if os.path.exists(build_dir):
@@ -44,4 +44,4 @@ if os.path.exists(build_dir):
 else:
     @app.get("/")
     def root():
-        return {"status": "BlackCode Legal API is live 🟢 (Frontend build not found)"}
+        return {"status": "BlackCoat Legal API is live 🟢 (Frontend build not found)"}

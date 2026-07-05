@@ -235,7 +235,7 @@ const suggestions = [
 export default function ChatWindow() {
   const [messages, setMessages] = useState([{
     role: 'bot',
-    text: "Namaste. I am BlackCode — your Indian legal advocate.\n\nDescribe your situation in detail and I will identify the exact laws that apply, build a legal argument for you, and cite the Supreme Court judgments that support your case.",
+    text: "Namaste. I am BlackCoat — your Indian legal advocate.\n\nDescribe your situation in detail and I will identify the exact laws that apply, build a legal argument for you, and cite the Supreme Court judgments that support your case.",
     sources: []
   }]);
   const [input, setInput] = useState('');
@@ -306,7 +306,7 @@ export default function ChatWindow() {
       }}>
         <LadyJustice animate={scalesAnimate} />
         <div style={{ textAlign:'center' }}>
-          <div style={{ fontFamily:"'Playfair Display',serif", color:'#C9A84C', fontSize:'22px', fontWeight:700, letterSpacing:'1.5px', textShadow: '0 2px 10px rgba(201,168,76,0.2)' }}>BlackCode</div>
+          <div style={{ fontFamily:"'Playfair Display',serif", color:'#C9A84C', fontSize:'22px', fontWeight:700, letterSpacing:'1.5px', textShadow: '0 2px 10px rgba(201,168,76,0.2)' }}>BlackCoat</div>
           <div style={{ color:'#9A9A8A', fontSize:'11px', marginTop:'4px', letterSpacing:'3px', textTransform:'uppercase', opacity: 0.8 }}>Legal Assistant</div>
         </div>
         <div style={{ width:'100%', height:'1px', background:'linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent)' }} />
@@ -349,7 +349,7 @@ export default function ChatWindow() {
             <div key={i} style={{ display:'flex', flexDirection:'column', alignItems: msg.role==='user' ? 'flex-end' : 'flex-start', animation:'fadeIn 0.3s ease' }}>
               {msg.role === 'bot' && (
                 <div style={{ fontSize:'11px', color:'#C9A84C', letterSpacing:'1.5px', textTransform:'uppercase', marginBottom:'6px', fontFamily:"'JetBrains Mono',monospace" }}>
-                  ⚖ BlackCode
+                  ⚖ BlackCoat
                 </div>
               )}
               <div style={{
@@ -423,7 +423,7 @@ export default function ChatWindow() {
         </div>
 
         <div style={{ textAlign:'center', padding:'8px', fontSize:'10px', color:'#3A3A2A', background:'#0B0F1A' }}>
-          BlackCode provides legal information, not legal advice. Consult a qualified advocate for court proceedings.
+          BlackCoat provides legal information, not legal advice. Consult a qualified advocate for court proceedings.
         </div>
       </div>
     </div>

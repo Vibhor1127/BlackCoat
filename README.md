@@ -1,12 +1,12 @@
-# ⚖️ BlackCode: Indian Legal Chatbot Assistant
+# ⚖️ BlackCoat: Indian Legal Chatbot Assistant
 
-BlackCode is a state-of-the-art, Retrieval-Augmented Generation (RAG) legal assistant designed to help common Indian citizens understand their legal rights and positions in simple language. Leveraging the power of **Groq's Llama-3.3-70b-versatile** and a customized **TF-IDF semantic database matcher**, the chatbot translates complex statutory language and landmark case laws into structured, actionable, and easy-to-understand legal advice.
+BlackCoat is a state-of-the-art, Retrieval-Augmented Generation (RAG) legal assistant designed to help common Indian citizens understand their legal rights and positions in simple language. Leveraging the power of **Groq's Llama-3.3-70b-versatile** and a customized **TF-IDF semantic database matcher**, the chatbot translates complex statutory language and landmark case laws into structured, actionable, and easy-to-understand legal advice.
 
 ---
 
 ## 📸 Interface Preview
 
-![BlackCode Legal Assistant UI](assets/screenshot.png)
+![BlackCoat Legal Assistant UI](assets/screenshot.png)
 
 ---
 
@@ -26,7 +26,7 @@ BlackCode is a state-of-the-art, Retrieval-Augmented Generation (RAG) legal assi
 
 ## 🏗️ System Architecture
 
-The following diagram illustrates the request lifecycle when a user asks a question to BlackCode:
+The following diagram illustrates the request lifecycle when a user asks a question to BlackCoat:
 
 ```mermaid
 graph TD
@@ -78,7 +78,7 @@ graph LR
 ### 1. Backend Configuration
 1. Navigate to the backend directory:
    ```bash
-   cd blackcode-backend
+   cd blackcoat-backend
    ```
 2. Create a virtual environment and activate it:
    ```bash
@@ -92,7 +92,7 @@ graph LR
    ```bash
    uv pip install -r requirements.txt fastapi uvicorn groq
    ```
-4. Create a `.env` file in the `blackcode-backend` directory and add your Groq API key:
+4. Create a `.env` file in the `blackcoat-backend` directory and add your Groq API key:
    ```env
    GROQ_API_KEY=your-actual-groq-api-key-here
    ```
@@ -101,7 +101,7 @@ graph LR
 Compile the frontend static assets so they can be served directly by the FastAPI backend:
 1. Navigate to the frontend directory:
    ```bash
-   cd ../blackcode-frontend
+   cd ../blackcoat-frontend
    ```
 2. Install npm packages:
    ```bash
@@ -113,9 +113,9 @@ Compile the frontend static assets so they can be served directly by the FastAPI
    ```
 
 ### 3. Launching the Application
-Launch the unified server from the `blackcode-backend` directory:
+Launch the unified server from the `blackcoat-backend` directory:
 ```bash
-cd ../blackcode-backend
+cd ../blackcoat-backend
 .venv\Scripts\python.exe -m uvicorn main:app --host 127.0.0.1 --port 8000
 ```
 Open **[http://localhost:8000/](http://localhost:8000/)** in your browser to interact with the application. The Swagger API documentation is available at `/docs`.
@@ -123,4 +123,4 @@ Open **[http://localhost:8000/](http://localhost:8000/)** in your browser to int
 ---
 
 ## 📝 Disclaimer
-*BlackCode provides legal information grounded in verified laws and judgments. It does not constitute formal legal advice. For filing proceedings in court, always consult a qualified advocate.*
+*BlackCoat provides legal information grounded in verified laws and judgments. It does not constitute formal legal advice. For filing proceedings in court, always consult a qualified advocate.*
