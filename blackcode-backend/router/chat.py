@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from models.schemas import ChatRequest, ChatResponse, SourceCard
 from services.retriever import retrieve_top_k
-from services.gemini import get_gemini_answer
+from services.llm_service import get_llm_answer
 
 router = APIRouter()
 
@@ -13,8 +13,8 @@ async def chat(request: ChatRequest):
     # Retrieve top matching laws/judgments
     contexts = retrieve_top_k(request.query, k=3)
 
-    # Get Gemini's simple-language answer grounded in context
-    answer = get_gemini_answer(request.query, contexts)
+    # Get Llama's simple-language answer grounded in context
+    answer = get_llm_answer(request.query, contexts)
 
     # Build source cards for UI
     sources = [

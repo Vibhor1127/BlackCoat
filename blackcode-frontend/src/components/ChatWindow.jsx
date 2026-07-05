@@ -2,45 +2,47 @@ import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 
 const LadyJustice = ({ animate }) => (
-  <svg width="120" height="180" viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg"
-    style={{ filter: 'drop-shadow(0 4px 24px rgba(201,168,76,0.18))' }}>
-    <defs>
-      <radialGradient id="robeGrad" cx="50%" cy="60%" r="50%">
-        <stop offset="0%" stopColor="#2C2F3A" />
-        <stop offset="100%" stopColor="#0B0F1A" />
-      </radialGradient>
-    </defs>
-    <line x1="60" y1="38" x2="60" y2="80" stroke="#C9A84C" strokeWidth="1.5" />
-    <line x1="30" y1="50" x2="90" y2="50" stroke="#C9A84C" strokeWidth="1.5" />
-    <line x1="30" y1="50" x2="30" y2="70" stroke="#C9A84C" strokeWidth="1" />
-    <line x1="90" y1="50" x2="90" y2="70" stroke="#C9A84C" strokeWidth="1" />
-    <ellipse cx="30" cy="72" rx="12" ry="4" fill="none" stroke="#C9A84C" strokeWidth="1.2"
-      style={{ transformOrigin: '30px 50px', animation: animate ? 'swayLeft 2.5s ease-in-out infinite alternate' : 'idleSway 4s ease-in-out infinite alternate' }} />
-    <ellipse cx="90" cy="72" rx="12" ry="4" fill="none" stroke="#C9A84C" strokeWidth="1.2"
-      style={{ transformOrigin: '90px 50px', animation: animate ? 'swayRight 2.5s ease-in-out infinite alternate' : 'idleSway2 4s ease-in-out 2s infinite alternate' }} />
-    <ellipse cx="60" cy="28" rx="12" ry="13" fill="#2C2F3A" />
-    <rect x="48" y="25" width="24" height="6" rx="3" fill="#8B1A1A" />
-    <path d="M50 20 Q55 16 60 19 Q65 16 70 20" stroke="#C9A84C" strokeWidth="1.2" fill="none" />
-    <path d="M45 41 Q38 80 34 140 Q46 145 60 145 Q74 145 86 140 Q82 80 75 41 Q68 38 60 38 Q52 38 45 41Z"
-      fill="url(#robeGrad)" stroke="#2C2F3A" strokeWidth="0.5" />
-    <path d="M55 45 Q52 90 50 138" stroke="#C9A84C" strokeWidth="0.4" strokeOpacity="0.3" />
-    <path d="M65 45 Q67 90 68 138" stroke="#C9A84C" strokeWidth="0.4" strokeOpacity="0.3" />
-    <path d="M75 55 Q90 48 95 42" stroke="#2C2F3A" strokeWidth="8" strokeLinecap="round" />
-    <path d="M75 55 Q90 48 95 42" stroke="#3A3F50" strokeWidth="5" strokeLinecap="round" />
-    <path d="M45 60 Q28 68 22 75" stroke="#2C2F3A" strokeWidth="8" strokeLinecap="round" />
-    <path d="M45 60 Q28 68 22 75" stroke="#3A3F50" strokeWidth="5" strokeLinecap="round" />
-    <line x1="22" y1="75" x2="10" y2="110" stroke="#C9A84C" strokeWidth="1.5" />
-    <line x1="18" y1="78" x2="26" y2="78" stroke="#C9A84C" strokeWidth="1.5" />
-    <rect x="42" y="140" width="36" height="8" rx="2" fill="#1A1D28" stroke="#C9A84C" strokeWidth="0.5" />
-    <rect x="36" y="148" width="48" height="6" rx="2" fill="#14172030" stroke="#C9A84C" strokeWidth="0.5" />
+  <div style={{
+    width: '120px',
+    height: '120px',
+    borderRadius: '50%',
+    overflow: 'hidden',
+    border: '2px solid rgba(201, 168, 76, 0.4)',
+    boxShadow: animate 
+      ? '0 0 25px rgba(201, 168, 76, 0.6), inset 0 0 15px rgba(201, 168, 76, 0.3)' 
+      : '0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(201, 168, 76, 0.2)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: '#0E1220',
+    transformOrigin: 'bottom center',
+    animation: animate 
+      ? 'swayLadyJusticeActive 1.5s ease-in-out infinite alternate' 
+      : 'swayLadyJustice 3s ease-in-out infinite alternate',
+    transition: 'all 0.5s ease'
+  }}>
+    <img 
+      src="/lady_justice.png" 
+      alt="Lady Justice" 
+      style={{
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover'
+      }} 
+    />
     <style>{`
-      @keyframes idleSway { 0%{transform:rotate(-3deg)}100%{transform:rotate(3deg)} }
-      @keyframes idleSway2 { 0%{transform:rotate(3deg)}100%{transform:rotate(-3deg)} }
-      @keyframes swayLeft { 0%{transform:rotate(-8deg) translateY(2px)}100%{transform:rotate(2deg) translateY(-2px)} }
-      @keyframes swayRight { 0%{transform:rotate(2deg) translateY(-2px)}100%{transform:rotate(-8deg) translateY(2px)} }
+      @keyframes swayLadyJustice {
+        0% { transform: rotate(-5deg); }
+        100% { transform: rotate(5deg); }
+      }
+      @keyframes swayLadyJusticeActive {
+        0% { transform: rotate(-10deg) scale(1.05); }
+        100% { transform: rotate(10deg) scale(1.05); }
+      }
     `}</style>
-  </svg>
+  </div>
 );
+
 
 const GavelStrike = ({ trigger }) => {
   const [show, setShow] = useState(false);
@@ -224,10 +226,10 @@ const TypingIndicator = () => (
 );
 
 const suggestions = [
-  "Police arrested my brother at night without telling him why and haven't produced him before a magistrate in 36 hours",
-  "My landlord locked my house and threw out my belongings without any court order",
-  "My employer fired me without any notice or reason after 5 years of service",
-  "Government wants to acquire our ancestral land without giving proper compensation"
+  "What are the new tax slabs under Section 115BAC (New Tax Regime)?",
+  "How can I claim GST Input Tax Credit (ITC) under Section 16?",
+  "What is the police custody timeline under Section 187 of BNSS?",
+  "What is the penalty for throwing acid under Section 124 of BNS?"
 ];
 
 export default function ChatWindow() {
@@ -254,7 +256,7 @@ export default function ChatWindow() {
     setLoading(true);
     setScalesAnimate(true);
     try {
-      const res = await axios.post('http://127.0.0.1:8000/api/chat', { query: q });
+      const res = await axios.post('/api/chat', { query: q });
       setMessages(prev => [...prev, { role:'bot', text:res.data.answer, sources:res.data.sources }]);
       setGavelTrigger(t => t + 1);
     } catch {
@@ -285,30 +287,44 @@ export default function ChatWindow() {
         @media(max-width:700px){.sidebar{display:none!important}}
         @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
         @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+        .cover-item:hover {
+          background: rgba(201, 168, 76, 0.06);
+          color: #C9A84C !important;
+          padding-left: 8px !important;
+        }
       `}</style>
 
       <GavelStrike trigger={gavelTrigger} />
 
       {/* Sidebar */}
       <div className="sidebar" style={{
-        width:'220px', minWidth:'220px', background:'#0E1220',
-        borderRight:'1px solid rgba(201,168,76,0.12)',
+        width:'240px', minWidth:'240px', background:'linear-gradient(180deg, #0E1220 0%, #060914 100%)',
+        borderRight:'1px solid rgba(201,168,76,0.15)',
         display:'flex', flexDirection:'column', alignItems:'center',
-        padding:'36px 16px 24px', gap:'20px', overflowY:'auto'
+        padding:'36px 20px 24px', gap:'24px', overflowY:'auto',
+        boxShadow: '4px 0 24px rgba(0, 0, 0, 0.4)'
       }}>
         <LadyJustice animate={scalesAnimate} />
         <div style={{ textAlign:'center' }}>
-          <div style={{ fontFamily:"'Playfair Display',serif", color:'#C9A84C', fontSize:'20px', fontWeight:700, letterSpacing:'1px' }}>BlackCode</div>
-          <div style={{ color:'#9A9A8A', fontSize:'11px', marginTop:'4px', letterSpacing:'2px', textTransform:'uppercase' }}>Legal Assistant</div>
+          <div style={{ fontFamily:"'Playfair Display',serif", color:'#C9A84C', fontSize:'22px', fontWeight:700, letterSpacing:'1.5px', textShadow: '0 2px 10px rgba(201,168,76,0.2)' }}>BlackCode</div>
+          <div style={{ color:'#9A9A8A', fontSize:'11px', marginTop:'4px', letterSpacing:'3px', textTransform:'uppercase', opacity: 0.8 }}>Legal Assistant</div>
         </div>
-        <div style={{ width:'100%', height:'1px', background:'rgba(201,168,76,0.12)' }} />
+        <div style={{ width:'100%', height:'1px', background:'linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent)' }} />
         <div style={{ width:'100%' }}>
-          <div style={{ fontSize:'10px', color:'#9A9A8A', letterSpacing:'2px', textTransform:'uppercase', marginBottom:'10px' }}>Covers</div>
-          {['Constitution of India','Landmark SC/HC Cases','Statutory Laws','Fundamental Rights','Constitutional Amendments','International Treaties'].map(t => (
-            <div key={t} style={{ fontSize:'12px', color:'#6A6A5A', padding:'5px 0', borderBottom:'1px solid rgba(201,168,76,0.06)' }}>{t}</div>
+          <div style={{ fontSize:'10px', color:'#C9A84C', letterSpacing:'2.5px', textTransform:'uppercase', marginBottom:'14px', fontWeight: 600, opacity: 0.8 }}>Covers</div>
+          {['Constitution of India','Landmark SC/HC Rulings','New Criminal Laws (BNS)','Income Tax Act, 1961','GST & Indirect Taxes','Fundamental Rights','Constitutional Amendments'].map(t => (
+            <div key={t} className="cover-item" style={{ 
+              fontSize:'12.5px', 
+              color:'#A1A191', 
+              padding:'6px 4px', 
+              borderRadius: '6px',
+              borderBottom:'1px solid rgba(201,168,76,0.04)',
+              transition: 'all 0.3s ease',
+              cursor: 'default'
+            }}>{t}</div>
           ))}
         </div>
-        <div style={{ marginTop:'auto', fontSize:'10px', color:'#4A4A3A', textAlign:'center', lineHeight:'1.5' }}>
+        <div style={{ marginTop:'auto', fontSize:'10px', color:'#5A5A4A', textAlign:'center', lineHeight:'1.5' }}>
           Powered by Indian Law Database 2026
         </div>
       </div>
@@ -339,8 +355,9 @@ export default function ChatWindow() {
               <div style={{
                 maxWidth: msg.role==='user' ? '65%' : '90%',
                 width: msg.role==='bot' ? '90%' : 'auto',
-                background: msg.role==='user' ? 'linear-gradient(135deg,rgba(139,26,26,0.25),rgba(139,26,26,0.12))' : 'rgba(20,24,38,0.85)',
-                border: msg.role==='user' ? '1px solid rgba(139,26,26,0.4)' : '1px solid rgba(201,168,76,0.14)',
+                background: msg.role==='user' ? 'linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05))' : 'rgba(18,22,34,0.9)',
+                border: msg.role==='user' ? '1px solid rgba(201,168,76,0.35)' : '1px solid rgba(255,255,255,0.08)',
+                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.25)',
                 borderRadius: msg.role==='user' ? '16px 16px 4px 16px' : '4px 16px 16px 16px',
                 padding:'14px 18px',
               }}>

@@ -3,6 +3,8 @@
 *.py[cod]
 **/.env
 **/venv/
+**/.venv/
+
 
 # React
 **/node_modules/

@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Initialize the Groq client
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 def build_prompt(query: str, contexts: list[dict]) -> str:
@@ -59,7 +60,7 @@ Respond in EXACTLY this structure — use these exact headings:
 This is legal information to help you understand your rights. For filing in court, always work with a qualified advocate who can verify citations and represent you properly.
 """
 
-def get_gemini_answer(query: str, contexts: list[dict]) -> str:
+def get_llm_answer(query: str, contexts: list[dict]) -> str:
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[{"role": "user", "content": build_prompt(query, contexts)}],
